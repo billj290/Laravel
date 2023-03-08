@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\CarController;
-use App\Http\Controllers\CarController;
-use App\Http\Controllers\BikeController;
+use App\Http\Controllers\StudentController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,19 +15,20 @@ use App\Http\Controllers\BikeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/cars', function () {
-    return view('car');
-});
+// Route::get('student', function () {
+//     return view('student.index');
+// });
 
- 
-// Route::get('/sayHello', [CarController::class, 'sayHello']);
-// Route::get('/index', [CarController::class, 'index']);
+//自定義的放上面    
+Route::get('child', [StudentController::class, 'childPage'])->name('student.child');
+Route::get('first_floor', [StudentController::class, 'first_floor'])->name('student.first');
+Route::get('second_floor', [StudentController::class, 'second_floor'])->name('student.second');
+Route::get('third_floor', [StudentController::class, 'third_floor'])->name('student.third');
+Route::get('top_floor', [StudentController::class, 'pent_house'])->name('student.penthouse');
 
- //resource的路徑就有了 綁CarController
-Route::resource('cars', CarController::class);
-Route::resource('bikes', BikeController::class);
-
+Route::get('students_excel', [StudentController::class, 'excel']);
+Route::resource('students', StudentController::class);
