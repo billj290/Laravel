@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
-
+use App\Http\Controllers\HotelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +32,9 @@ Route::get('top_floor', [StudentController::class, 'pent_house'])->name('student
 
 Route::get('students_excel', [StudentController::class, 'excel']);
 Route::resource('students', StudentController::class);
+
+
+Route::get('f1', [HotelController::class, 'f1'])->name('hotel.f1');
+Route::get('f2', [HotelController::class, 'f2'])->name('hotel.f2');
+Route::get('f3', [HotelController::class, 'f3'])->name('hotel.f3');
+Route::resource('hotel', HotelController::class);
